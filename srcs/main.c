@@ -1,14 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/03 16:53:26 by acami             #+#    #+#             */
-/*   Updated: 2021/07/03 17:24:17 by acami            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+//                    DEBUG FILE!
+//                    DEBUG FILE!
+//                    DEBUG FILE!
+//                    DEBUG FILE!
+//                    DEBUG FILE!
+//                    DEBUG FILE!
+//                    DEBUG FILE!
+//                    DEBUG FILE!
+//                    DEBUG FILE!
+//                    DEBUG FILE!
+//                    DEBUG FILE!
+//                    DEBUG FILE!
+//                    DEBUG FILE!
 
 #include "push_swap.h"
 #include <stdio.h>

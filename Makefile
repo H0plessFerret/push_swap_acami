@@ -6,7 +6,7 @@
 #    By: acami <acami@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/03 16:05:13 by acami             #+#    #+#              #
-#    Updated: 2021/07/03 17:08:57 by acami            ###   ########.fr        #
+#    Updated: 2021/07/03 19:59:46 by acami            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,17 @@ HEADERS_DIR		=	./headers/
 SRC_DIR			=	./srcs/
 SRC_F			= 	double_circular_list.c \
 utils.c \
-main.c
+initializers.c \
+push_swap.c
 SRCS			=	$(addprefix $(SRC_DIR), $(SRC_F))
 
 OBJ_DIR			=	./objs/
 OBJ_F			=	$(SRC_F:.c=.o)
 OBJS			=	$(addprefix $(OBJ_DIR), $(OBJ_F))
+
+DEBUG_F			=	main.c
+D_SRCS			=	$(addprefix $(SRC_DIR), $(DEBUG_F))
+D_OBJS			=	$(addprefix $(OBJ_DIR), $(DEBUG_F:.c=.o))
 
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror -g
@@ -35,6 +40,10 @@ BLUE	=	\033[0;34m
 CYAN	=	\033[0;36m
 RESET 	= 	\033[0m
 
+debug	:		$(OBJ_DIR) $(OBJS) $(D_OBJS)
+				@echo "$(NAME): $(GREEN)Creating $(NAME)$(RESET)"
+				$(CC) $(CFLAGS) $(LIBS) $(INCLUDES) $(OBJS) $(D_OBJS) -o $(NAME)
+				@echo "$(NAME): $(GREEN)>>>>>>>>>> DONE <<<<<<<<<<$(RESET)"
 
 $(NAME) :	 	$(OBJ_DIR) $(OBJS)
 				@echo "$(NAME): $(GREEN)Creating $(NAME)$(RESET)"
