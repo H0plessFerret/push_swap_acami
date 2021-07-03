@@ -1,0 +1,6 @@
+push_swap
+objs/
+*.test
+*.debug
+.vs*
+*.dSYM*
