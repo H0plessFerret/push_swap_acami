@@ -14,23 +14,21 @@
 
 #include "push_swap.h"
 #include <stdio.h>
+#include <stdlib.h>
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_dCList	*head;
 	int32_t		count;
 
 	head = NULL;
-	//insertDCList(&head, 6);
-	//printDCList(head);
 	count = 1;
-	while (count < 6)
+	while (count < argc)
 	{
-		//insertDCList(&head, count);
+		pushDCList(&head, atoi(argv[count]), false);
 		++count;
 	}
-	//printDCList(head);
-	//clearDCList(&head);
-	printf("%p\n", head);
+	printDCList(head);
+	clearDCList(&head);
 	return (0);
 }

@@ -6,14 +6,14 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:08:48 by acami             #+#    #+#             */
-/*   Updated: 2021/07/03 17:21:42 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/04 16:13:17 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "double_circular_list.h"
 #include <stdio.h>
 
-t_dCList	*createDCListElem(int64_t val)
+static t_dCList	*createDCListElem(int64_t val)
 {
 	t_dCList	*new_elem;
 
@@ -24,20 +24,22 @@ t_dCList	*createDCListElem(int64_t val)
 	return (new_elem);
 }
 
-void	insertDCList(t_dCList **reference, int64_t val)
+void	pushDCList(t_dCList **head, int64_t val, bool is_front)
 {
 	t_dCList	*new_elem;
 
 	new_elem = createDCListElem(val);
-	if (*reference == NULL)
+	if (*head == NULL)
 	{
-		*reference = new_elem;
+		*head = new_elem;
 		return ;
 	}
-	new_elem->next = (*reference)->next;
-	new_elem->prev = *reference;
-	(*reference)->next->prev = new_elem;
-	(*reference)->next = new_elem;
+	new_elem->next = *head;
+	new_elem->prev = (*head)->prev;
+	(*head)->prev->next = new_elem;
+	(*head)->prev = new_elem;
+	if (is_front)
+		*head = new_elem;
 }
 
 void	deleteDCListElem(t_dCList **elem)
@@ -73,6 +75,8 @@ void	printDCList(t_dCList *head)
 {
 	t_dCList	*curr_elem;
 
+	if (head == NULL)
+		return ;
 	curr_elem = head;
 	while (curr_elem->next != head)
 	{
