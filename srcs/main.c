@@ -18,17 +18,12 @@
 
 int	main(int argc, char **argv)
 {
-	t_dCList	*head;
-	int32_t		count;
+	t_env			env;
+	t_actionList	action_list;
 
-	head = NULL;
-	count = 1;
-	while (count < argc)
-	{
-		pushDCList(&head, atoi(argv[count]), false);
-		++count;
-	}
-	printDCList(head);
-	clearDCList(&head);
+	env.actions = &action_list;
+	initEnv(&env);
+	parseInput(&(env.a_head), argc, argv);
+	clearEnv(&env);
 	return (0);
 }

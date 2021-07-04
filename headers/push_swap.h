@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:41 by acami             #+#    #+#             */
-/*   Updated: 2021/07/03 20:06:27 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/04 17:03:26 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "utils.h"
 # include <stdlib.h>
 # include <inttypes.h>
+# include <unistd.h>
 
 typedef struct s_env		t_env;
 typedef struct s_actionList	t_actionList;
@@ -51,6 +52,13 @@ struct s_env
 	t_actionList	*actions;
 };
 
+// Initialize environment variables
 void	initEnv(t_env *env);
+
+// Free lists and before exiting the program
+void	clearEnv(t_env *env);
+
+// Check input for validity and save it (if valid) to a DCList
+void	parseInput(t_dCList **a_head, int32_t argc, char **argv);
 
 #endif
