@@ -19,9 +19,7 @@
 int	main(int argc, const char **argv)
 {
 	t_env			env;
-	t_actionList	action_list;
 
-	env.actions = &action_list;
 	initEnv(&env);
 	parseInput(&(env.a_head), argc, argv);
 	clearEnv(&env);

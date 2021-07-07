@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:19:26 by acami             #+#    #+#             */
-/*   Updated: 2021/07/07 14:15:43 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/07 14:20:00 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,6 @@ void	parseInput(t_dCList **a_head, int32_t argc, const char **argv)
 	else if (argc == 2)
 		entries = readSingleParamInput(a_head, argc, argv);
 	else
-	{
 		panic(ERRMSG_DEFAULT);
-	}
 	// Validate input list
 }
