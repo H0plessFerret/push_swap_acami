@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 15:45:15 by acami             #+#    #+#             */
-/*   Updated: 2021/07/04 16:15:42 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/07 18:27:46 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void		deleteDCListElem(t_dCList **elem);
 // Delete all elements of the DCList and sets the head value to NULL
 void		clearDCList(t_dCList **head);
 
-// Prints DCList on the standart output
+// DEBUG FUNC!
 void		printDCList(t_dCList *head);
 
 #endif
