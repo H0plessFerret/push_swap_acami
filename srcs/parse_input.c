@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:19:26 by acami             #+#    #+#             */
-/*   Updated: 2021/07/07 15:25:15 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/07 18:22:58 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,28 @@ static void	checkArgsValidity(int32_t argc, const char **argv)
 	}
 }
 
+static void	checkListVals(t_dCList *a_head)
+{
+	t_dCList	*curr_elem;
+	t_dCList	*curr_head;
+
+	if (a_head->next != a_head)
+	{
+		curr_head = a_head;
+		while (curr_head != a_head->prev)
+		{
+			curr_elem = curr_head->next;
+			while (curr_elem != a_head)
+			{
+				if (curr_elem->val == curr_head->val)
+					panic(ERRMSG_DEFAULT);
+				curr_elem = curr_elem->next;
+			}
+			curr_head = curr_head->next;
+		}
+	}
+}
+
 void	parseInput(t_dCList **a_head, int32_t argc, const char **argv)
 {
 	int32_t	entries;
@@ -84,5 +106,5 @@ void	parseInput(t_dCList **a_head, int32_t argc, const char **argv)
 		entries = readSingleParamInput(a_head, argv[1]);
 	else
 		panic(ERRMSG_DEFAULT);
-	// Validate input list
+	checkListVals(*a_head);
 }
