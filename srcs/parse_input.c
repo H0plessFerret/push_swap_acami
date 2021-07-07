@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:19:26 by acami             #+#    #+#             */
-/*   Updated: 2021/07/07 14:20:00 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/07 15:25:15 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,22 @@ const char **argv)
 	return (count);
 }
 
-static int32_t	readSingleParamInput(t_dCList **a_head, int32_t argc,
-const char **argv)
+static int32_t	readSingleParamInput(t_dCList **a_head, const char *str)
 {
+	size_t	str_pos;
+	size_t	str_len;
 	int32_t	count;
 
-	count = 1;
-	while (count < argc)
+	str_pos = 0;
+	count = 0;
+	str_len = ft_strlen(str);
+	while (str_pos < str_len)
 	{
-		pushDCList(a_head, ft_atol(argv[count]), false);
+		pushDCList(a_head, ft_atol(str + str_pos), false);
+		while (ft_isdigit(str[str_pos]) && str_pos < str_len)
+			++str_pos;
+		while (str[str_pos] == ' ' && str_pos < str_len)
+			++str_pos;
 		++count;
 	}
 	printDCList(*a_head);
@@ -58,7 +65,7 @@ static void	checkArgsValidity(int32_t argc, const char **argv)
 		while (count < str_len)
 		{
 			if (!(ft_isdigit(argv[argnum][count]))
-				&& !(argv[argnum][count] == ' '))
+				&& !((argv[argnum][count] == ' ') && (argc == 2)))
 				panic(ERRMSG_DEFAULT);
 			++count;
 		}
@@ -74,7 +81,7 @@ void	parseInput(t_dCList **a_head, int32_t argc, const char **argv)
 	if (argc > 2)
 		entries = readMultiParamInput(a_head, argc, argv);
 	else if (argc == 2)
-		entries = readSingleParamInput(a_head, argc, argv);
+		entries = readSingleParamInput(a_head, argv[1]);
 	else
 		panic(ERRMSG_DEFAULT);
 	// Validate input list
