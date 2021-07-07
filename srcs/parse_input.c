@@ -6,14 +6,14 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:19:26 by acami             #+#    #+#             */
-/*   Updated: 2021/07/04 16:58:10 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/07 14:15:43 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static int32_t	readMultiParamInput(t_dCList **a_head, int32_t argc,
-char **argv)
+const char **argv)
 {
 	int32_t	count;
 
@@ -28,7 +28,7 @@ char **argv)
 }
 
 static int32_t	readSingleParamInput(t_dCList **a_head, int32_t argc,
-char **argv)
+const char **argv)
 {
 	int32_t	count;
 
@@ -42,24 +42,42 @@ char **argv)
 	return (count);
 }
 
-static void	errorPlaceholder(void)
+static void	checkArgsValidity(int32_t argc, const char **argv)
 {
-	write(1, "Error\n", 6);
-	exit (EXIT_FAILURE);
+	int32_t	argnum;
+	size_t	count;
+	size_t	str_len;
+
+	argnum = 1;
+	while (argnum < argc)
+	{
+		count = 0;
+		str_len = ft_strlen(argv[argnum]);
+		if (str_len == 0)
+			panic(ERRMSG_DEFAULT);
+		while (count < str_len)
+		{
+			if (!(ft_isdigit(argv[argnum][count]))
+				&& !(argv[argnum][count] == ' '))
+				panic(ERRMSG_DEFAULT);
+			++count;
+		}
+		++argnum;
+	}
 }
 
-void	parseInput(t_dCList **a_head, int32_t argc, char **argv)
+void	parseInput(t_dCList **a_head, int32_t argc, const char **argv)
 {
 	int32_t	entries;
 
-	// Validate input strings
+	checkArgsValidity(argc, argv);
 	if (argc > 2)
 		entries = readMultiParamInput(a_head, argc, argv);
 	else if (argc == 2)
 		entries = readSingleParamInput(a_head, argc, argv);
 	else
 	{
-		errorPlaceholder();
+		panic(ERRMSG_DEFAULT);
 	}
 	// Validate input list
 }

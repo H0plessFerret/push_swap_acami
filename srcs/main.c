@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int	main(int argc, char **argv)
+int	main(int argc, const char **argv)
 {
 	t_env			env;
 	t_actionList	action_list;

@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:41 by acami             #+#    #+#             */
-/*   Updated: 2021/07/04 17:03:26 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/07 14:04:12 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ void	initEnv(t_env *env);
 void	clearEnv(t_env *env);
 
 // Check input for validity and save it (if valid) to a DCList
-void	parseInput(t_dCList **a_head, int32_t argc, char **argv);
+void	parseInput(t_dCList **a_head, int32_t argc, const char **argv);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: acami <acami@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/03 16:05:13 by acami             #+#    #+#              #
-#    Updated: 2021/07/04 17:06:57 by acami            ###   ########.fr        #
+#    Updated: 2021/07/07 14:12:31 by acami            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,11 @@ HEADERS_DIR		=	./headers/
 
 SRC_DIR			=	./srcs/
 SRC_F			= 	double_circular_list.c \
-utils.c \
+ft_atol.c \
 initializers.c \
 parse_input.c \
-ft_atol.c \
+utils.c \
+error_handlers.c \
 ft_ltoa.c \
 push_swap.c
 SRCS			=	$(addprefix $(SRC_DIR), $(SRC_F))
