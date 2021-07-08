@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 15:45:15 by acami             #+#    #+#             */
-/*   Updated: 2021/07/08 13:41:10 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/08 15:41:45 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <inttypes.h>
 # include <stdbool.h>
 # include "utils.h"
+
+#include <stdio.h>
 
 // DCList = Doubly-linked Circlular List
 typedef struct s_dCList	t_dCList;

@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:41 by acami             #+#    #+#             */
-/*   Updated: 2021/07/08 13:12:30 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/08 15:13:51 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,10 @@ void	clearEnv(t_env *env);
 
 // Check input for validity and save it (if valid) to a DCList
 void	parseInput(t_dCList **a_head, int32_t argc, const char **argv);
+
+void	mySort(t_env *env);
+
+//---------------------------- Basic operations ----------------------------//
 
 // Basic forwards rotation on 1 elem of a dCList
 void	rotate(t_dCList **head);

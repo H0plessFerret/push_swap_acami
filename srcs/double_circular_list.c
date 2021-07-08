@@ -6,12 +6,11 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:08:48 by acami             #+#    #+#             */
-/*   Updated: 2021/07/08 13:45:12 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/08 17:45:09 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "double_circular_list.h"
-#include <stdio.h>
 
 static t_dCList	*createDCListElem(int64_t val)
 {

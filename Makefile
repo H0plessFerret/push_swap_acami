@@ -6,7 +6,7 @@
 #    By: acami <acami@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/03 16:05:13 by acami             #+#    #+#              #
-#    Updated: 2021/07/08 13:19:01 by acami            ###   ########.fr        #
+#    Updated: 2021/07/08 14:57:39 by acami            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ ft_ltoa.c \
 basic_operations.c \
 operations_1.c \
 operations_2.c \
+sort.c \
 push_swap.c
 SRCS			=	$(addprefix $(SRC_DIR), $(SRC_F))
 
