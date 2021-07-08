@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:19:26 by acami             #+#    #+#             */
-/*   Updated: 2021/07/07 18:22:58 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/08 13:45:48 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static int32_t	readSingleParamInput(t_dCList **a_head, const char *str)
 			++str_pos;
 		++count;
 	}
-	printDCList(*a_head);
 	return (count);
 }
 

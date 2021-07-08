@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:08:48 by acami             #+#    #+#             */
-/*   Updated: 2021/07/08 13:42:33 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/08 13:45:12 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ void	printDCList(t_dCList *head)
 	t_dCList	*curr_elem;
 
 	if (head == NULL)
+	{
+		printf("NOTHING\n");
 		return ;
+	}
 	curr_elem = head;
 	while (curr_elem->next != head)
 	{
