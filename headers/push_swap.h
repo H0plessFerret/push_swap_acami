@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:41 by acami             #+#    #+#             */
-/*   Updated: 2021/07/07 18:38:26 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/08 13:12:30 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@
 # include <inttypes.h>
 # include <unistd.h>
 
-typedef struct s_env		t_env;
-typedef struct s_actionList	t_actionList;
-typedef enum e_actionId		t_actionId;
+typedef struct s_env			t_env;
+typedef enum e_actionId			t_actionId;
 
 enum e_actionId
 {
@@ -39,17 +38,11 @@ enum e_actionId
 	act_rrr
 };
 
-struct s_actionList
-{
-	t_actionId		action;
-	t_actionList	*next;
-};
-
 struct s_env
 {
-	t_dCList		*a_head;
-	t_dCList		*b_head;
-	t_actionList	*actions;
+	t_dCList	*a_head;
+	t_dCList	*b_head;
+	t_dCList	*actions;
 };
 
 // Initialize environment variables
@@ -61,12 +54,37 @@ void	clearEnv(t_env *env);
 // Check input for validity and save it (if valid) to a DCList
 void	parseInput(t_dCList **a_head, int32_t argc, const char **argv);
 
+// Basic forwards rotation on 1 elem of a dCList
 void	rotate(t_dCList **head);
 
+// Basic backwards rotation on 1 elem of a dCList
 void	revRotate(t_dCList **head);
 
+// Basic swap of two top elems of a dCList
 void	swap(t_dCList *head);
 
+// Push the head element from one list to another, making it a head there
 void	push(t_dCList **from_head, t_dCList **to_head);
+
+// Adds a new entry to the action list
+void	pushAction(t_dCList **head, t_actionId action);
+
+//----------------------------- Game operations -----------------------------//
+
+void	sa(t_env *env);
+
+void	sb(t_env *env);
+
+void	pa(t_env *env);
+
+void	pb(t_env *env);
+
+void	ra(t_env *env);
+
+void	rb(t_env *env);
+
+void	rra(t_env *env);
+
+void	rrb(t_env *env);
 
 #endif

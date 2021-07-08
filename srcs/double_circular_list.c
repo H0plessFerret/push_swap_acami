@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:08:48 by acami             #+#    #+#             */
-/*   Updated: 2021/07/04 16:13:17 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/08 13:42:33 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,21 @@ void	pushDCList(t_dCList **head, int64_t val, bool is_front)
 		*head = new_elem;
 }
 
-void	deleteDCListElem(t_dCList **elem)
+void	deleteDCListHead(t_dCList **head)
 {
-	if ((*elem)->next == *elem)
+	t_dCList	*tmp;
+
+	if ((*head)->next == *head)
 	{
-		free(*elem);
-		*elem = NULL;
+		free(*head);
+		*head = NULL;
 		return ;
 	}
-	(*elem)->next->prev = (*elem)->prev;
-	(*elem)->prev->next = (*elem)->next;
-	free(*elem);
+	(*head)->next->prev = (*head)->prev;
+	(*head)->prev->next = (*head)->next;
+	tmp = (*head)->next;
+	free(*head);
+	*head = tmp;
 }
 
 void	clearDCList(t_dCList **head)

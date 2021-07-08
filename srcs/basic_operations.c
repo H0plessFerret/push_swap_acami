@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 18:33:16 by acami             #+#    #+#             */
-/*   Updated: 2021/07/07 18:41:18 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/08 13:43:15 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,10 @@ void	push(t_dCList **from_head, t_dCList **to_head)
 	if (from_head == NULL)
 		return ;
 	pushDCList(to_head, (*from_head)->val, true);
-	deleteDCListElem(from_head);
+	deleteDCListHead(from_head);
+}
+
+void	pushAction(t_dCList **head, t_actionId action)
+{
+	pushDCList(head, action, true);
 }

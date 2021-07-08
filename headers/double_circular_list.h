@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 15:45:15 by acami             #+#    #+#             */
-/*   Updated: 2021/07/07 18:27:46 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/08 13:41:10 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ struct s_dCList
 // Otherwise makes adds it to the back of the list
 void		pushDCList(t_dCList **head, int64_t val, bool is_front);
 
-// Destroys element elem of DCList, keeps the structure of the list intact
-void		deleteDCListElem(t_dCList **elem);
+// Destroys the head elem of DCList, keeps the structure of the list intact
+void		deleteDCListHead(t_dCList **head);
 
 // Delete all elements of the DCList and sets the head value to NULL
 void		clearDCList(t_dCList **head);

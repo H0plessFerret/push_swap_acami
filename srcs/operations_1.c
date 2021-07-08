@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initializers.c                                     :+:      :+:    :+:   */
+/*   operations_1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/03 19:59:36 by acami             #+#    #+#             */
-/*   Updated: 2021/07/08 13:17:50 by acami            ###   ########.fr       */
+/*   Created: 2021/07/08 13:03:59 by acami             #+#    #+#             */
+/*   Updated: 2021/07/08 13:18:30 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	initEnv(t_env *env)
+void	sa(t_env *env)
 {
-	env->a_head = NULL;
-	env->b_head = NULL;
-	env->actions = NULL;
+	swap(env->a_head);
+	pushAction(&(env->actions), act_sa);
 }
 
-void	clearEnv(t_env *env)
+void	sb(t_env *env)
 {
-	clearDCList(&(env->a_head));
-	clearDCList(&(env->b_head));
-	clearDCList(&(env->actions));
+	swap(env->b_head);
+	pushAction(&(env->actions), act_sb);
+}
+
+void	pa(t_env *env)
+{
+	push(&(env->b_head), &(env->a_head));
+	pushAction(&(env->actions), act_pa);
+}
+
+void	pb(t_env *env)
+{
+	push(&(env->a_head), &(env->b_head));
+	pushAction(&(env->actions), act_pb);
 }

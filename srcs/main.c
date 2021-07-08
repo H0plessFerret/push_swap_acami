@@ -22,6 +22,12 @@ int	main(int argc, const char **argv)
 
 	initEnv(&env);
 	parseInput(&(env.a_head), argc, argv);
+	pb(&env);
+	printf("\n");
+	printDCList(env.a_head);
+	printf("\n");
+	printDCList(env.b_head);
+	printf("\n");
 	clearEnv(&env);
 	return (0);
 }
