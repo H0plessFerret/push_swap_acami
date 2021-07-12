@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 15:45:15 by acami             #+#    #+#             */
-/*   Updated: 2021/07/08 15:41:45 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/12 13:44:38 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ struct s_dCList
 };
 
 // Create a new element and push it into a list.
-// If is_front is set to true, uses makes the new elem the head of the list
-// Otherwise makes adds it to the back of the list
-void		pushDCList(t_dCList **head, int64_t val, bool is_front);
+// If push_top is set to true, adds elem to the top of the list
+// Otherwise adds elem to the bottom
+void		pushDCList(t_dCList **head, int64_t val, bool push_top);
 
 // Destroys the head elem of DCList, keeps the structure of the list intact
 void		deleteDCListHead(t_dCList **head);

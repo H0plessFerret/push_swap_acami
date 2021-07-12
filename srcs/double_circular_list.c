@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:08:48 by acami             #+#    #+#             */
-/*   Updated: 2021/07/08 17:45:09 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/12 13:43:44 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_dCList	*createDCListElem(int64_t val)
 	return (new_elem);
 }
 
-void	pushDCList(t_dCList **head, int64_t val, bool is_front)
+void	pushDCList(t_dCList **head, int64_t val, bool push_top)
 {
 	t_dCList	*new_elem;
 
@@ -37,7 +37,7 @@ void	pushDCList(t_dCList **head, int64_t val, bool is_front)
 	new_elem->prev = (*head)->prev;
 	(*head)->prev->next = new_elem;
 	(*head)->prev = new_elem;
-	if (is_front)
+	if (push_top)
 		*head = new_elem;
 }
 

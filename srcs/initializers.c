@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 19:59:36 by acami             #+#    #+#             */
-/*   Updated: 2021/07/08 16:10:18 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/12 13:58:45 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	initEnv(t_env *env)
 	env->a_head = NULL;
 	env->b_head = NULL;
 	env->actions = NULL;
+	env->elems_total = 0;
 }
 
 void	clearEnv(t_env *env)

@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:55 by acami             #+#    #+#             */
-/*   Updated: 2021/07/07 14:15:12 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/12 13:42:07 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@
 
 // Malloc bytes_to_alloc bytes. Exits the programm if malloc returns NULL
 void	*xMalloc(size_t bytes_to_alloc);
-
-// Convert int64_t value to a string
-char	*ft_ltoa(int64_t n);
 
 // Convert string to int64_t value
 int64_t	ft_atol(const char *str);

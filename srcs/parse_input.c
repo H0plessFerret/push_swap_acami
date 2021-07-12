@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:19:26 by acami             #+#    #+#             */
-/*   Updated: 2021/07/08 13:45:48 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/12 14:58:53 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ const char **argv)
 		pushDCList(a_head, ft_atol(argv[count]), false);
 		++count;
 	}
-	printDCList(*a_head);
 	return (count);
 }
 
@@ -94,16 +93,18 @@ static void	checkListVals(t_dCList *a_head)
 	}
 }
 
-void	parseInput(t_dCList **a_head, int32_t argc, const char **argv)
+void	parseInput(t_env *env, int32_t argc, const char **argv)
 {
 	int32_t	entries;
 
 	checkArgsValidity(argc, argv);
+	entries = 0;
 	if (argc > 2)
-		entries = readMultiParamInput(a_head, argc, argv);
+		entries = readMultiParamInput(&(env->a_head), argc, argv);
 	else if (argc == 2)
-		entries = readSingleParamInput(a_head, argv[1]);
+		entries = readSingleParamInput(&(env->a_head), argv[1]);
 	else
 		panic(ERRMSG_DEFAULT);
-	checkListVals(*a_head);
+	checkListVals(env->a_head);
+	env->elems_total = entries;
 }
