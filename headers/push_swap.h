@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:41 by acami             #+#    #+#             */
-/*   Updated: 2021/07/12 15:09:22 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/12 16:49:35 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ struct s_env
 	t_dCList	*b_head;
 	t_dCList	*actions;
 	int64_t		elems_total;
+	int64_t		*desired_array;
 };
 
 // Initialize environment variables

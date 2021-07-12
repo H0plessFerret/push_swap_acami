@@ -23,6 +23,7 @@ int	main(int argc, const char **argv)
 
 	initEnv(&env);
 	parseInput(&env, argc, argv);
+	mySort(&env);
 	printf("A:\n");
 	printDCList(env.a_head);
 	printf("\nB:\n");
