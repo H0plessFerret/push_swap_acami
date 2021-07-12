@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 15:00:38 by acami             #+#    #+#             */
-/*   Updated: 2021/07/12 16:56:16 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/12 17:09:13 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int64_t *max, int64_t *mid)
 	*max = env->desired_array[env->elems_total - 1];
 	*mid = env->desired_array[env->elems_total / 2];
 }
-
+/*
 static void	pushToB(t_env *env)
 {
 	int64_t		min;
@@ -41,6 +41,31 @@ static void	pushToB(t_env *env)
 		}
 	}
 }
+*/
+// TO DO: Fix this sort maybe, idk it kinda works
+static void	sortArray(int64_t *arr, int64_t arr_size)
+{
+	int64_t	i;
+	int64_t	j;
+	int64_t	tmp;
+
+	i = 0;
+	while (i < arr_size)
+	{
+		j = i + 1;
+		while (j < arr_size)
+		{
+			if (arr[i] > arr[j])
+			{
+				tmp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = tmp;
+			}
+			++j;
+		}
+		++i;
+	}
+}
 
 static void	findDeisredArray(t_env *env)
 {
@@ -56,7 +81,7 @@ static void	findDeisredArray(t_env *env)
 		curr_elem = curr_elem->next;
 		++count;
 	}
-	//sort array
+	sortArray(env->desired_array, env->elems_total);
 }
 
 void	mySort(t_env *env)
@@ -65,10 +90,21 @@ void	mySort(t_env *env)
 	int64_t	max;
 	int64_t	mid;
 
+	int64_t	count;
+
 	// Pre sort if I cba lol
 	findDeisredArray(env);
-	findScpecialValues(env->a_head, &min, &max, &mid);
-	pushToB(env);
+	findScpecialValues(env, &min, &max, &mid);
+	// Debug stuff
+	printf("%lld %lld %lld %lld\n", min, max, mid, env->elems_total);
+	count = 0;
+	while (count < env->elems_total)
+	{
+		printf("%lld\n", env->desired_array[count]);
+		++count;
+	}
+	// End debug
+	//pushToB(env);
 	// While b is not empty
 	// find next move
 }
