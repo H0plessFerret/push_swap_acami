@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:08:48 by acami             #+#    #+#             */
-/*   Updated: 2021/07/12 13:43:44 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/26 15:46:02 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	clearDCList(t_dCList **head)
 	*head = NULL;
 }
 
+// TO DO: Remove this func, it's for debug purposes only
 void	printDCList(t_dCList *head)
 {
 	t_dCList	*curr_elem;
@@ -86,8 +87,8 @@ void	printDCList(t_dCList *head)
 	curr_elem = head;
 	while (curr_elem->next != head)
 	{
-		printf("%lld\n", curr_elem->val);
+		printf("%ld\n", curr_elem->val);
 		curr_elem = curr_elem->next;
 	}
-	printf("%lld\n", curr_elem->val);
+	printf("%ld\n", curr_elem->val);
 }

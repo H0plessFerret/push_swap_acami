@@ -39,6 +39,6 @@ int	main(int argc, const char **argv)
 	printf("\nActions: %lld", action_count);
 	*/
 	printf("\n");
-	clearEnv(&env);
+	//clearEnv(&env);
 	exit (0);
 }

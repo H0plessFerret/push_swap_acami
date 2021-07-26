@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 15:00:38 by acami             #+#    #+#             */
-/*   Updated: 2021/07/12 17:09:13 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/26 16:05:09 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,7 @@ int64_t *max, int64_t *mid)
 	*max = env->desired_array[env->elems_total - 1];
 	*mid = env->desired_array[env->elems_total / 2];
 }
-/*
-static void	pushToB(t_env *env)
-{
-	int64_t		min;
-	int64_t		max;
-	int64_t		mid;
-	int64_t		count;
 
-	max = findMax(env->a_head);
-	min = findMin(env->a_head);
-	count = 0;
-	while (count < 3)
-	{
-		if (env->a_head->val != min && env->a_head->val != max)
-			pb(env);
-		else
-		{
-			ra(env);
-			++count;
-		}
-	}
-}
-*/
 // TO DO: Fix this sort maybe, idk it kinda works
 static void	sortArray(int64_t *arr, int64_t arr_size)
 {
@@ -84,6 +62,29 @@ static void	findDeisredArray(t_env *env)
 	sortArray(env->desired_array, env->elems_total);
 }
 
+static void	pushToB(t_env *env, int64_t min, int64_t max, int64_t mid)
+{
+	int64_t		count;
+
+	count = 0;
+	while (true)
+	{
+		if (env->a_head->val != min && env->a_head->val != max)
+		{
+			pb(env);
+			if (env->b_head->val > mid)
+				rb(env);
+		}
+		else if (count != 2)
+		{
+			ra(env);
+			++count;
+		}
+		else
+			break;
+	}
+}
+
 void	mySort(t_env *env)
 {
 	int64_t	min;
@@ -96,15 +97,17 @@ void	mySort(t_env *env)
 	findDeisredArray(env);
 	findScpecialValues(env, &min, &max, &mid);
 	// Debug stuff
-	printf("%lld %lld %lld %lld\n", min, max, mid, env->elems_total);
+	printf("%ld %ld %ld %ld\n", min, max, mid, env->elems_total);
 	count = 0;
 	while (count < env->elems_total)
 	{
-		printf("%lld\n", env->desired_array[count]);
+		printf("%ld\n", env->desired_array[count]);
 		++count;
 	}
 	// End debug
-	//pushToB(env);
+	pushToB(env, min, max, mid);
+	if (env->a_head->val == max)
+		sa(env);
 	// While b is not empty
 	// find next move
 }

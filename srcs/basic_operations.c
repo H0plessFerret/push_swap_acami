@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 18:33:16 by acami             #+#    #+#             */
-/*   Updated: 2021/07/12 13:45:32 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/26 15:42:30 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	swap(t_dCList *head)
 	head->next->val = temp;
 }
 
+// TO DO: Rewrite this func so it doesn't constantly realloc memory
 void	push(t_dCList **from_head, t_dCList **to_head)
 {
 	if (from_head == NULL)
