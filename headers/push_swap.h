@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:41 by acami             #+#    #+#             */
-/*   Updated: 2021/07/27 16:41:48 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/27 17:38:21 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ struct s_env
 	t_dCList	*a_head;
 	t_dCList	*b_head;
 	t_dCList	*actions;
+	int64_t		a_size;
+	int64_t		b_size;
+	//make sure elems_total can't be replaced by a_size everywhere
 	int64_t		elems_total;
 	int64_t		*desired_array;
 };

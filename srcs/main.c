@@ -24,8 +24,10 @@ int	main(int argc, const char **argv)
 	initEnv(&env);
 	parseInput(&env, argc, argv);
 	mySort(&env);
+	printf("\nA Size: %ld\n", env.a_size);
 	printf("A:\n");
 	printDCList(env.a_head);
+	printf("\nB Size: %ld\n", env.b_size);
 	printf("\nB:\n");
 	printDCList(env.b_head);
 	/*

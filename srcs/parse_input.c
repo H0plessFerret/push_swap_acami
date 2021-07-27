@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:19:26 by acami             #+#    #+#             */
-/*   Updated: 2021/07/26 15:58:13 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/27 17:44:44 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ const char **argv)
 		pushDCList(a_head, ft_atol(argv[count]), false);
 		++count;
 	}
-	return (count);
+	return (count - 1);
 }
 
 static int32_t	readSingleParamInput(t_dCList **a_head, const char *str)
@@ -107,4 +107,5 @@ void	parseInput(t_env *env, int32_t argc, const char **argv)
 		panic(ERRMSG_DEFAULT);
 	checkListVals(env->a_head);
 	env->elems_total = entries;
+	env->a_size = entries;
 }
