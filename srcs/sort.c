@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 15:00:38 by acami             #+#    #+#             */
-/*   Updated: 2021/07/27 17:00:30 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/27 19:03:02 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	pushToB(t_env *env, int64_t min, int64_t max, int64_t mid)
 		if (env->a_head->val != min && env->a_head->val != max)
 		{
 			pb(env);
-			if (env->b_head->val > mid)
+			if (env->b_head->val >= mid)
 				rb(env);
 		}
 		else if (count != 2)

@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:41 by acami             #+#    #+#             */
-/*   Updated: 2021/07/27 17:38:21 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/27 18:45:04 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,8 @@ void	rrb(t_env *env);
 
 //----------------------------- Sort operations -----------------------------//
 
-void	next_move(t_env *env);
+void	nextMove(t_env *env);
 
-bool	is_sorted(t_dCList *head);
+bool	isSorted(t_dCList *head);
 
 #endif

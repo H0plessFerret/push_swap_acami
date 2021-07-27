@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:55 by acami             #+#    #+#             */
-/*   Updated: 2021/07/12 13:42:07 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/27 18:46:01 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,8 @@ void	ft_putstr_fd(char *str, int32_t fd);
 
 // Prints a string str to fd and adds a \n afterwards
 void	ft_putendl_fd(char *str, int32_t fd);
+
+// Returns absolute value of an int64_t (Excluding INT64_MIN)
+int64_t	myAbs(int64_t num);
 
 #endif
