@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:08:48 by acami             #+#    #+#             */
-/*   Updated: 2021/07/26 15:46:02 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/27 16:07:39 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static t_dCList	*createDCListElem(int64_t val)
 	new_elem->next = new_elem;
 	new_elem->prev = new_elem;
 	new_elem->val = val;
+	new_elem->elem_score = NO_SCORE;
 	return (new_elem);
 }
 

@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 15:00:38 by acami             #+#    #+#             */
-/*   Updated: 2021/07/26 16:05:09 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/27 17:00:30 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,24 +91,13 @@ void	mySort(t_env *env)
 	int64_t	max;
 	int64_t	mid;
 
-	int64_t	count;
-
 	// Pre sort if I cba lol
 	findDeisredArray(env);
 	findScpecialValues(env, &min, &max, &mid);
-	// Debug stuff
-	printf("%ld %ld %ld %ld\n", min, max, mid, env->elems_total);
-	count = 0;
-	while (count < env->elems_total)
-	{
-		printf("%ld\n", env->desired_array[count]);
-		++count;
-	}
-	// End debug
 	pushToB(env, min, max, mid);
 	if (env->a_head->val == max)
 		sa(env);
-	// While b is not empty
-	// find next move
+	//while (env->b_head != NULL)
+	//	next_move(env);
 }
  

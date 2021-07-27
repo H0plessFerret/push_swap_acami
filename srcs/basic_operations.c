@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 18:33:16 by acami             #+#    #+#             */
-/*   Updated: 2021/07/26 15:42:30 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/27 17:13:50 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,33 @@ void	swap(t_dCList *head)
 	head->next->val = temp;
 }
 
-// TO DO: Rewrite this func so it doesn't constantly realloc memory
 void	push(t_dCList **from_head, t_dCList **to_head)
 {
-	if (from_head == NULL)
+	t_dCList	*new_from_head;
+
+	if (from_head == NULL || *from_head == NULL)
 		return ;
-	pushDCList(to_head, (*from_head)->val, true);
-	deleteDCListHead(from_head);
+	new_from_head = NULL;
+	if (*from_head != (*from_head)->next)
+	{
+		new_from_head = (*from_head)->next;
+		new_from_head->prev = (*from_head)->prev;
+		(*from_head)->prev->next = new_from_head;
+	}
+	if (*to_head == NULL)
+	{
+		(*from_head)->next = *from_head;
+		(*from_head)->prev = *from_head;
+	}
+	else
+	{
+		(*from_head)->next = *to_head;
+		(*to_head)->prev->next = *from_head;
+		(*from_head)->prev = (*to_head)->prev;
+		(*to_head)->prev = *from_head;
+	}
+	*to_head = *from_head;
+	*from_head = new_from_head;
 }
 
 void	pushAction(t_dCList **head, t_actionId action)

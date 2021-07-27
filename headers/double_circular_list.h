@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 15:45:15 by acami             #+#    #+#             */
-/*   Updated: 2021/07/12 13:44:38 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/27 16:08:08 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdbool.h>
 # include "utils.h"
 
+# define	NO_SCORE	-1
+
 #include <stdio.h>
 
 // DCList = Doubly-linked Circlular List
@@ -27,6 +29,7 @@ typedef bool			(*t_comparator)(t_dCList *a, t_dCList *b);
 struct s_dCList
 {
 	int64_t		val;
+	int64_t		elem_score;
 	t_dCList	*next;
 	t_dCList	*prev;
 };
