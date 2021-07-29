@@ -6,21 +6,37 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 19:43:21 by acami             #+#    #+#             */
-/*   Updated: 2021/07/03 20:07:28 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/29 17:45:11 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
 
-/*
-int	main(int argc, char **argv)
+int	main(int argc, const char **argv)
 {
-	//init env vars etc
-	t_env	env;
+	t_env		env;
+	int64_t		action_count;
+	t_dCList	*action_iter;
 
 	initEnv(&env);
-	//parse and validte input
-	//boot sort
-	//print res
+	parseInput(&env, argc, argv);
+	mySort(&env);
+	printf("\nA Size: %ld\n", env.a_size);
+	printf("A:\n");
+	printDCList(env.a_head);
+	printf("\nB Size: %ld\n", env.b_size);
+	printf("\nB:\n");
+	printDCList(env.b_head);
+	action_iter = env.actions->next;
+	action_count = 1;
+	while (action_iter != env.actions)
+	{
+		++action_count;
+		action_iter = action_iter->next;
+	}
+	printf("\nActions: %ld", action_count);
+	printf("\n");
+	//clearEnv(&env);
+	exit (0);
 }
-*/
