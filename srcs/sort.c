@@ -6,82 +6,33 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 15:00:38 by acami             #+#    #+#             */
-/*   Updated: 2021/07/29 14:51:56 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/29 15:36:25 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	findScpecialValues(const t_env *env, int64_t *min,
-int64_t *max, int64_t *mid)
+void	doRotations(t_env *env, int64_t a_rotations, int64_t b_rotations)
 {
-	*min = env->desired_array[0];
-	*max = env->desired_array[env->elems_total - 1];
-	*mid = env->desired_array[env->elems_total / 2];
-}
-
-// TO DO: Fix this sort maybe, idk it kinda works
-static void	sortArray(int64_t *arr, int64_t arr_size)
-{
-	int64_t	i;
-	int64_t	j;
-	int64_t	tmp;
-
-	i = 0;
-	while (i < arr_size)
+	while (b_rotations < 0)
 	{
-		j = i + 1;
-		while (j < arr_size)
-		{
-			if (arr[i] > arr[j])
-			{
-				tmp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = tmp;
-			}
-			++j;
-		}
-		++i;
+		rrb(env);
+		++b_rotations;
 	}
-}
-
-static void	findDeisredArray(t_env *env)
-{
-	t_dCList	*curr_elem;
-	int64_t		count;
-
-	env->desired_array = malloc(env->elems_total * sizeof(int64_t));
-	curr_elem = env->a_head;
-	count = 0;
-	while (count < env->elems_total)
+	while (b_rotations > 0)
 	{
-		env->desired_array[count] = curr_elem->val;
-		curr_elem = curr_elem->next;
-		++count;
+		rb(env);
+		--b_rotations;
 	}
-	sortArray(env->desired_array, env->elems_total);
-}
-
-static void	pushToB(t_env *env, int64_t min, int64_t max, int64_t mid)
-{
-	int64_t		count;
-
-	count = 0;
-	while (true)
+	while (a_rotations < 0)
 	{
-		if (env->a_head->val != min && env->a_head->val != max)
-		{
-			pb(env);
-			if (env->b_head->val >= mid)
-				rb(env);
-		}
-		else if (count != 2)
-		{
-			ra(env);
-			++count;
-		}
-		else
-			break;
+		rra(env);
+		++a_rotations;
+	}
+	while (a_rotations > 0)
+	{
+		ra(env);
+		--a_rotations;
 	}
 }
 
@@ -90,6 +41,7 @@ void	mySort(t_env *env)
 	int64_t	min;
 	int64_t	max;
 	int64_t	mid;
+	int64_t	a_rotations;
 
 	// Pre sort if I cba lol
 	findDeisredArray(env);
@@ -99,7 +51,8 @@ void	mySort(t_env *env)
 		sa(env);
 	while (env->b_head != NULL)
 		nextMove(env);
-	// Set a_head into correct position
+	a_rotations = calculateARotations(env, min) - 1;
+	doRotations(env, a_rotations, 0);
 	// Optimize actions
 	// Print actions
 }

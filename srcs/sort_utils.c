@@ -6,16 +6,13 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:03 by acami             #+#    #+#             */
-/*   Updated: 2021/07/29 14:40:48 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/29 15:35:14 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Find how many rotations of stack a are needed in order
-// to push val into a correct position
-// Negative value means it's reverse rotations
-static int64_t	calculateARotations(t_env *env, int64_t val)
+int64_t	calculateARotations(t_env *env, int64_t val)
 {
 	t_dCList	*curr_elem;
 	int64_t		count;
@@ -90,14 +87,7 @@ static void	pushBMinScoreElem(t_env *env, t_dCList *elem, int64_t position)
 		b_rotations = position;
 	else
 		b_rotations = position - env->b_size;
-	while (b_rotations++ < 0)
-		rrb(env);
-	while (b_rotations-- > 1)
-		rb(env);
-	while (a_rotations++ < 0)
-		rra(env);
-	while (a_rotations-- > 1)
-		ra(env);
+	doRotations(env, a_rotations, b_rotations);
 	pa(env);
 }
 

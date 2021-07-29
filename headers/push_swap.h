@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:41 by acami             #+#    #+#             */
-/*   Updated: 2021/07/27 18:45:04 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/29 15:45:24 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,32 @@ void	rrb(t_env *env);
 
 //----------------------------- Sort operations -----------------------------//
 
+// Analyze current state of input data and find min, max and mid values
+void	findScpecialValues(const t_env *env, int64_t *min,
+			int64_t *max, int64_t *mid);
+
+// Create a sorted array that we should get at the end for comparison purposes
+void	findDeisredArray(t_env *env);
+
+// Push all unsorted elements to the B stack
+void	pushToB(t_env *env, int64_t min, int64_t max, int64_t mid);
+
+// Calculate and do the next step of the algorithm
 void	nextMove(t_env *env);
 
+// Check if the array is properly sorted
 bool	isSorted(t_dCList *head);
+
+// Find how many rotations of stack a are needed in order
+// to push val into a correct position
+// Negative value means it's reverse rotations
+int64_t	calculateARotations(t_env *env, int64_t val);
+
+// Do a_rotations on the a list, and b_rotations on the b_list
+// If the amount of rotations is negative, it's reverse rotations
+void	doRotations(t_env *env, int64_t a_rotations, int64_t b_rotations);
+
+// Find and replace redundant operations
+void	optimizeActionList(t_dCList *actions);
 
 #endif

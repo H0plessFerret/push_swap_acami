@@ -6,7 +6,7 @@
 #    By: acami <acami@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/03 16:05:13 by acami             #+#    #+#              #
-#    Updated: 2021/07/27 18:56:15 by acami            ###   ########.fr        #
+#    Updated: 2021/07/29 15:29:03 by acami            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ error_handlers.c \
 basic_operations.c \
 operations_1.c \
 operations_2.c \
+pre_sort_utils.c \
 sort.c \
 sort_utils.c \
 math_utils.c \
