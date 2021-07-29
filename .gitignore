@@ -4,3 +4,4 @@ objs/
 *.debug
 .vs*
 *.dSYM*
+*.tmp
