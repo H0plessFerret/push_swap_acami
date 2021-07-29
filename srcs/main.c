@@ -18,8 +18,8 @@
 int	main(int argc, const char **argv)
 {
 	t_env		env;
-	//int64_t		action_count;
-	//t_dCList	*action_iter;
+	int64_t		action_count;
+	t_dCList	*action_iter;
 
 	initEnv(&env);
 	parseInput(&env, argc, argv);
@@ -30,7 +30,6 @@ int	main(int argc, const char **argv)
 	printf("\nB Size: %ld\n", env.b_size);
 	printf("\nB:\n");
 	printDCList(env.b_head);
-	/*
 	action_iter = env.actions->next;
 	action_count = 1;
 	while (action_iter != env.actions)
@@ -38,8 +37,7 @@ int	main(int argc, const char **argv)
 		++action_count;
 		action_iter = action_iter->next;
 	}
-	printf("\nActions: %lld", action_count);
-	*/
+	printf("\nActions: %ld", action_count);
 	printf("\n");
 	//clearEnv(&env);
 	exit (0);

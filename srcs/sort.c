@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 15:00:38 by acami             #+#    #+#             */
-/*   Updated: 2021/07/27 19:03:02 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/29 14:43:27 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,10 @@ void	mySort(t_env *env)
 	pushToB(env, min, max, mid);
 	if (env->a_head->val == max)
 		sa(env);
-	//while (env->b_head != NULL)
-	//	next_move(env);
+	while (env->b_head != NULL)
+		nextMove(env);
+	// Set a_head into correct position
+	// Optimize actions
+	// Print actions
 }
  
