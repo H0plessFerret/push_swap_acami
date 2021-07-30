@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:41 by acami             #+#    #+#             */
-/*   Updated: 2021/07/30 15:29:32 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/30 17:34:58 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,30 @@
 # include <inttypes.h>
 # include <unistd.h>
 
+# define	SORTED	1
+
 typedef struct s_env			t_env;
+typedef struct s_subarray		t_subarray;
 typedef enum e_actionId			t_actionId;
 typedef void					(*t_operation)(t_env *env);
+
+struct s_env
+{
+	t_dCList	*a_head;
+	t_dCList	*b_head;
+	t_dCList	*actions;
+	int64_t		a_size;
+	int64_t		b_size;
+	int64_t		*desired_array;
+};
+
+struct s_subarray
+{
+	int64_t	val;
+	int64_t	score;
+	int64_t	prev_val;
+	bool	has_prev_elem;
+};
 
 enum e_actionId
 {
@@ -37,16 +58,6 @@ enum e_actionId
 	act_rra,
 	act_rrb,
 	act_rrr
-};
-
-struct s_env
-{
-	t_dCList	*a_head;
-	t_dCList	*b_head;
-	t_dCList	*actions;
-	int64_t		a_size;
-	int64_t		b_size;
-	int64_t		*desired_array;
 };
 
 // Initialize environment variables
@@ -69,6 +80,10 @@ void	mySort(t_env *env);
 
 // Prints all actions needed to sort an incoming array in the fd specified
 void	printActions(const t_dCList *actions, int64_t fd);
+
+// Find the greatest possible sorted sub array
+// starting with min and ending with max elem on the A stack
+void	findGreatestSortedSubarray(t_env *env, int64_t min, int64_t max);
 
 //---------------------------- Basic operations ----------------------------//
 

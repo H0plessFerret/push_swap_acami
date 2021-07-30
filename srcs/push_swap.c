@@ -6,13 +6,32 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 19:43:21 by acami             #+#    #+#             */
-/*   Updated: 2021/07/30 15:08:37 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/30 18:10:51 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
+// TO DO: Remove this func, it's for debug purposes only
+void	printDCList(t_dCList *head)
+{
+	t_dCList	*curr_elem;
+
+	if (head == NULL)
+	{
+		printf("NOTHING\n");
+		return ;
+	}
+	curr_elem = head;
+	while (curr_elem->next != head)
+	{
+		printf("%ld\n", curr_elem->val);
+		curr_elem = curr_elem->next;
+	}
+	printf("%ld\n", curr_elem->val);
+}
+
 static void	debugOutput(t_env *env)
 {
 	int64_t		action_count;

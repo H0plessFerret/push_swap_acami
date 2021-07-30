@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 15:27:50 by acami             #+#    #+#             */
-/*   Updated: 2021/07/30 15:29:57 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/30 17:38:02 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,14 @@ void	pushToB(t_env *env, int64_t min, int64_t max, int64_t mid)
 	{
 		if (env->a_head->val != min && env->a_head->val != max)
 		{
-			pb(env);
-			if (env->b_head->val >= mid)
-				rb(env);
+			if (env->a_head->elem_score != SORTED)
+			{
+				pb(env);
+				if (env->b_head->val >= mid)
+					rb(env);
+			}
+			else
+				ra(env);
 		}
 		else if (count != 2)
 		{

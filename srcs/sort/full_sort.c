@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 15:12:19 by acami             #+#    #+#             */
-/*   Updated: 2021/07/30 15:28:58 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/30 18:05:39 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ void	fullSort(t_env *env)
 	int64_t	a_rotations;
 
 	findDeisredArray(env);
-	//findGreatestSortedSubarray(env);
 	findScpecialValues(env, &min, &max, &mid);
+	findGreatestSortedSubarray(env, min, max);
 	pushToB(env, min, max, mid);
 	if (env->a_head->val == max)
-		sa(env);
+		ra(env);
 	while (env->b_head != NULL)
 		nextMove(env);
 	a_rotations = calculateARotations(env, min) - 1;
