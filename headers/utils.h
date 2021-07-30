@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:55 by acami             #+#    #+#             */
-/*   Updated: 2021/07/27 18:46:01 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/30 15:05:02 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,24 @@ void	panic(const char *errstr);
 bool	ft_isdigit(int32_t character_to_check);
 
 // Prints a string str to fd
-void	ft_putstr_fd(char *str, int32_t fd);
+void	ft_putstr_fd(const char *str, int32_t fd);
 
 // Prints a string str to fd and adds a \n afterwards
-void	ft_putendl_fd(char *str, int32_t fd);
+void	ft_putendl_fd(const char *str, int32_t fd);
 
 // Returns absolute value of an int64_t (Excluding INT64_MIN)
 int64_t	myAbs(int64_t num);
+
+// Returns the greater value from a and b
+int64_t	myMax(int64_t a, int64_t b);
+
+// Returns the lesser value from a and b
+int64_t	myMin(int64_t a, int64_t b);
+
+// Returns the value from a and b, which absolute value is greater
+int64_t	myMaxAbs(int64_t a, int64_t b);
+
+// Returns the value from a and b, which absolute value is lesser
+int64_t	myMinAbs(int64_t a, int64_t b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:41 by acami             #+#    #+#             */
-/*   Updated: 2021/07/29 15:45:24 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/30 15:29:32 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 typedef struct s_env			t_env;
 typedef enum e_actionId			t_actionId;
+typedef void					(*t_operation)(t_env *env);
 
 enum e_actionId
 {
@@ -45,8 +46,6 @@ struct s_env
 	t_dCList	*actions;
 	int64_t		a_size;
 	int64_t		b_size;
-	//make sure elems_total can't be replaced by a_size everywhere
-	int64_t		elems_total;
 	int64_t		*desired_array;
 };
 
@@ -59,8 +58,17 @@ void	clearEnv(t_env *env);
 // Check input for validity and save it (if valid) to a DCList
 void	parseInput(t_env *env, int32_t argc, const char **argv);
 
+// Algorithm for sorting large amounts of data
+void	fullSort(t_env *env);
+
+// Sub-algorithm used for sorting very small chunks of data
+void	miniSort(t_env *env);
+
 // Actual sorting function
 void	mySort(t_env *env);
+
+// Prints all actions needed to sort an incoming array in the fd specified
+void	printActions(const t_dCList *actions, int64_t fd);
 
 //---------------------------- Basic operations ----------------------------//
 
@@ -93,9 +101,13 @@ void	ra(t_env *env);
 
 void	rb(t_env *env);
 
+void	rr(t_env *env);
+
 void	rra(t_env *env);
 
 void	rrb(t_env *env);
+
+void	rrr(t_env *env);
 
 //----------------------------- Sort operations -----------------------------//
 
@@ -118,13 +130,11 @@ bool	isSorted(t_dCList *head);
 // Find how many rotations of stack a are needed in order
 // to push val into a correct position
 // Negative value means it's reverse rotations
-int64_t	calculateARotations(t_env *env, int64_t val);
+int64_t	calculateARotations(const t_env *env, int64_t val);
 
 // Do a_rotations on the a list, and b_rotations on the b_list
 // If the amount of rotations is negative, it's reverse rotations
+// Automatically use rr and rrr if possible
 void	doRotations(t_env *env, int64_t a_rotations, int64_t b_rotations);
-
-// Find and replace redundant operations
-void	optimizeActionList(t_dCList *actions);
 
 #endif

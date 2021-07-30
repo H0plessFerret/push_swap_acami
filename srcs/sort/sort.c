@@ -6,53 +6,34 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 15:00:38 by acami             #+#    #+#             */
-/*   Updated: 2021/07/29 15:36:25 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/30 15:27:56 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	doRotations(t_env *env, int64_t a_rotations, int64_t b_rotations)
+bool	isSorted(t_dCList *head)
 {
-	while (b_rotations < 0)
+	t_dCList	*curr_elem;
+	t_dCList	*last;
+
+	curr_elem = head;
+	last = head->prev;
+	while (curr_elem != last)
 	{
-		rrb(env);
-		++b_rotations;
+		if (curr_elem->val > curr_elem->next->val)
+			return (false);
+		curr_elem = curr_elem->next;
 	}
-	while (b_rotations > 0)
-	{
-		rb(env);
-		--b_rotations;
-	}
-	while (a_rotations < 0)
-	{
-		rra(env);
-		++a_rotations;
-	}
-	while (a_rotations > 0)
-	{
-		ra(env);
-		--a_rotations;
-	}
+	return (true);
 }
 
 void	mySort(t_env *env)
 {
-	int64_t	min;
-	int64_t	max;
-	int64_t	mid;
-	int64_t	a_rotations;
-
-	// Pre sort if I cba lol
-	findDeisredArray(env);
-	findScpecialValues(env, &min, &max, &mid);
-	pushToB(env, min, max, mid);
-	if (env->a_head->val == max)
-		sa(env);
-	while (env->b_head != NULL)
-		nextMove(env);
-	a_rotations = calculateARotations(env, min) - 1;
-	doRotations(env, a_rotations, 0);
-	// Optimize actions
-	// Print actions
+	if (isSorted(env->a_head))
+		exit(EXIT_SUCCESS);
+	/*if (env->a_size <= 10)
+		miniSort(env);
+	else*/
+		fullSort(env);
 }

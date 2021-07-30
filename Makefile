@@ -6,7 +6,7 @@
 #    By: acami <acami@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/03 16:05:13 by acami             #+#    #+#              #
-#    Updated: 2021/07/29 18:19:19 by acami            ###   ########.fr        #
+#    Updated: 2021/07/30 15:26:34 by acami            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,18 +23,23 @@ SRC_F			= 	double_circular_list.c \
 parse_input.c \
 push_swap.c
 
-SORT_F			=	pre_sort_utils.c \
+SORT_F			=	full_sort.c \
+mini_sort.c \
+pre_sort_optimization.c \
+pre_sort_utils.c \
 sort_utils.c \
 sort.c
 
 STACK_F			=	basic_operations.c \
 operations_1.c \
-operations_2.c
+operations_2.c \
+operations_3.c
 
 UTILS_F			=	error_handlers.c \
 ft_atol.c \
 initializers.c \
 math_utils.c \
+print_actions.c \
 utils.c
 
 SRCS			=	$(addprefix $(SRC_DIR), $(SRC_F))

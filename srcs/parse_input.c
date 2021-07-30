@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:19:26 by acami             #+#    #+#             */
-/*   Updated: 2021/07/27 17:44:44 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/30 15:29:35 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,5 @@ void	parseInput(t_env *env, int32_t argc, const char **argv)
 	else
 		panic(ERRMSG_DEFAULT);
 	checkListVals(env->a_head);
-	env->elems_total = entries;
 	env->a_size = entries;
 }

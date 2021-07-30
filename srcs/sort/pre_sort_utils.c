@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 15:27:50 by acami             #+#    #+#             */
-/*   Updated: 2021/07/29 15:30:36 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/30 15:29:57 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	findScpecialValues(const t_env *env, int64_t *min,
 int64_t *max, int64_t *mid)
 {
 	*min = env->desired_array[0];
-	*max = env->desired_array[env->elems_total - 1];
-	*mid = env->desired_array[env->elems_total / 2];
+	*max = env->desired_array[env->a_size - 1];
+	*mid = env->desired_array[env->a_size / 2];
 }
 
 // TO DO: Fix this sort maybe, idk it kinda works
@@ -50,16 +50,16 @@ void	findDeisredArray(t_env *env)
 	t_dCList	*curr_elem;
 	int64_t		count;
 
-	env->desired_array = malloc(env->elems_total * sizeof(int64_t));
+	env->desired_array = malloc(env->a_size * sizeof(int64_t));
 	curr_elem = env->a_head;
 	count = 0;
-	while (count < env->elems_total)
+	while (count < env->a_size)
 	{
 		env->desired_array[count] = curr_elem->val;
 		curr_elem = curr_elem->next;
 		++count;
 	}
-	sortArray(env->desired_array, env->elems_total);
+	sortArray(env->desired_array, env->a_size);
 }
 
 void	pushToB(t_env *env, int64_t min, int64_t max, int64_t mid)

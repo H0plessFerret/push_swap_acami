@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:17:21 by acami             #+#    #+#             */
-/*   Updated: 2021/07/07 14:13:35 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/30 15:04:56 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ bool	ft_isdigit(int32_t character_to_check)
 	return (false);
 }
 
-void	ft_putstr_fd(char *str, int32_t fd)
+void	ft_putstr_fd(const char *str, int32_t fd)
 {
 	if (str != NULL)
 		write(fd, str, ft_strlen(str));
 }
 
-void	ft_putendl_fd(char *str, int32_t fd)
+void	ft_putendl_fd(const char *str, int32_t fd)
 {
 	if (str != NULL)
 	{

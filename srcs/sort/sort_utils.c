@@ -6,13 +6,13 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:03 by acami             #+#    #+#             */
-/*   Updated: 2021/07/29 15:35:14 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/30 14:54:00 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int64_t	calculateARotations(t_env *env, int64_t val)
+int64_t	calculateARotations(const t_env *env, int64_t val)
 {
 	t_dCList	*curr_elem;
 	int64_t		count;
@@ -54,7 +54,7 @@ static void	assignBScore(t_env *env, t_dCList *elem, int64_t position)
 }
 
 // Find an elem with the lowest score in b_stack
-static t_dCList	*findBMinScoreElem(t_env *env, int64_t *position)
+static t_dCList	*findBMinScoreElem(const t_env *env, int64_t *position)
 {
 	int64_t		count;
 	t_dCList	*curr_elem;
