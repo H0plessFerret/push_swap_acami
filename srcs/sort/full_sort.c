@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 15:12:19 by acami             #+#    #+#             */
-/*   Updated: 2021/07/30 18:05:39 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/31 15:12:37 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,10 @@ void	fullSort(t_env *env)
 	int64_t	max;
 	int64_t	mid;
 	int64_t	a_rotations;
+	int64_t	*sorted_a_arr;
 
-	findDeisredArray(env);
-	findScpecialValues(env, &min, &max, &mid);
+	sorted_a_arr = findSortedArray(env, true);
+	mid = findScpecialValues(sorted_a_arr, env->a_size, &min, &max);
 	findGreatestSortedSubarray(env, min, max);
 	pushToB(env, min, max, mid);
 	if (env->a_head->val == max)
@@ -77,5 +78,4 @@ void	fullSort(t_env *env)
 		nextMove(env);
 	a_rotations = calculateARotations(env, min) - 1;
 	doRotations(env, a_rotations, 0);
-	printActions(env->actions, STDOUT_FILENO);
 }

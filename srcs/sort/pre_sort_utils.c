@@ -6,18 +6,18 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 15:27:50 by acami             #+#    #+#             */
-/*   Updated: 2021/07/30 17:38:02 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/31 15:32:19 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	findScpecialValues(const t_env *env, int64_t *min,
-int64_t *max, int64_t *mid)
+int64_t	findScpecialValues(const int64_t *arr, int64_t size, int64_t *min,
+int64_t *max)
 {
-	*min = env->desired_array[0];
-	*max = env->desired_array[env->a_size - 1];
-	*mid = env->desired_array[env->a_size / 2];
+	*min = arr[0];
+	*max = arr[size - 1];
+	return (arr[size / 2]);
 }
 
 // TO DO: Fix this sort maybe, idk it kinda works
@@ -45,21 +45,33 @@ static void	sortArray(int64_t *arr, int64_t arr_size)
 	}
 }
 
-void	findDeisredArray(t_env *env)
+int64_t	*findSortedArray(t_env *env, bool is_a)
 {
 	t_dCList	*curr_elem;
+	int64_t		list_size;
+	int64_t		*arr;
 	int64_t		count;
 
-	env->desired_array = malloc(env->a_size * sizeof(int64_t));
-	curr_elem = env->a_head;
-	count = 0;
-	while (count < env->a_size)
+	if (is_a)
 	{
-		env->desired_array[count] = curr_elem->val;
+		list_size = env->a_size;
+		curr_elem = env->a_head;
+	}
+	else
+	{
+		list_size = env->b_size;
+		curr_elem = env->b_head;
+	}
+	arr = malloc(list_size * sizeof(int64_t));
+	count = 0;
+	while (count < list_size)
+	{
+		arr[count] = curr_elem->val;
 		curr_elem = curr_elem->next;
 		++count;
 	}
-	sortArray(env->desired_array, env->a_size);
+	sortArray(arr, list_size);
+	return (arr);
 }
 
 void	pushToB(t_env *env, int64_t min, int64_t max, int64_t mid)
@@ -74,7 +86,7 @@ void	pushToB(t_env *env, int64_t min, int64_t max, int64_t mid)
 			if (env->a_head->elem_score != SORTED)
 			{
 				pb(env);
-				if (env->b_head->val >= mid)
+				if (env->b_head->val > mid)
 					rb(env);
 			}
 			else

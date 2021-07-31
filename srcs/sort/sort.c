@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 15:00:38 by acami             #+#    #+#             */
-/*   Updated: 2021/07/30 15:27:56 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/31 15:20:07 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	mySort(t_env *env)
 {
 	if (isSorted(env->a_head))
 		exit(EXIT_SUCCESS);
-	/*if (env->a_size <= 10)
+	if (env->a_size <= 6)
 		miniSort(env);
-	else*/
+	else
 		fullSort(env);
 }

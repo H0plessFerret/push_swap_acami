@@ -5,3 +5,4 @@ objs/
 .vs*
 *.dSYM*
 *.tmp
+checker_linux

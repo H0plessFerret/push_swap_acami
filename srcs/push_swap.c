@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 19:43:21 by acami             #+#    #+#             */
-/*   Updated: 2021/07/30 18:10:51 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/31 13:53:49 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	main(int argc, const char **argv)
 	initEnv(&env);
 	parseInput(&env, argc, argv);
 	mySort(&env);
+	printActions(env.actions, STDOUT_FILENO);
 	//clearEnv(&env);
-	exit (0);
+	exit (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:03 by acami             #+#    #+#             */
-/*   Updated: 2021/07/30 14:54:00 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/31 14:32:11 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int64_t	calculateARotations(const t_env *env, int64_t val)
 		curr_elem = curr_elem->next;
 		++count;
 	}
-	if (count < env->a_size - count)
+	if (count < env->a_size - count - 1)
 		return (count);
 	return (count - env->a_size);
 }

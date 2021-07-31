@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:41 by acami             #+#    #+#             */
-/*   Updated: 2021/07/30 17:34:58 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/31 15:06:58 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <unistd.h>
 
 # define	SORTED	1
+# define	EFFECTIVENESS_THRESHOLD	3
 
 typedef struct s_env			t_env;
 typedef struct s_subarray		t_subarray;
@@ -33,7 +34,6 @@ struct s_env
 	t_dCList	*actions;
 	int64_t		a_size;
 	int64_t		b_size;
-	int64_t		*desired_array;
 };
 
 struct s_subarray
@@ -126,12 +126,13 @@ void	rrr(t_env *env);
 
 //----------------------------- Sort operations -----------------------------//
 
-// Analyze current state of input data and find min, max and mid values
-void	findScpecialValues(const t_env *env, int64_t *min,
-			int64_t *max, int64_t *mid);
+// Returns mid value, and sets min and max values of an array arr
+int64_t	findScpecialValues(const int64_t *arr, int64_t size, int64_t *min,
+			int64_t *max);
 
-// Create a sorted array that we should get at the end for comparison purposes
-void	findDeisredArray(t_env *env);
+// If is_a is true - returns a sorted array of the stack A,
+// otherwise returns a sorted array of the stack B
+int64_t	*findSortedArray(t_env *env, bool is_a);
 
 // Push all unsorted elements to the B stack
 void	pushToB(t_env *env, int64_t min, int64_t max, int64_t mid);
