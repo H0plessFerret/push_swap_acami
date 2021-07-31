@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:19:26 by acami             #+#    #+#             */
-/*   Updated: 2021/07/31 17:56:16 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/31 18:22:20 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ static int32_t	readSingleParamInput(t_dCList **a_head, const char *str)
 	while (str_pos < str_len)
 	{
 		pushDCList(a_head, ft_atol(str + str_pos), false);
-		while (ft_isdigit(str[str_pos]) && str_pos < str_len)
-			++str_pos;
-		while ((str[str_pos] == ' ' || str[str_pos] == '-')
+		while ((str[str_pos] == '-' || ft_isdigit(str[str_pos]))
 			&& str_pos < str_len)
+			++str_pos;
+		while (str[str_pos] == ' ' && str_pos < str_len)
 			++str_pos;
 		++count;
 	}
@@ -64,8 +64,11 @@ static void	checkArgsValidity(int32_t argc, const char **argv)
 		while (count < str_len)
 		{
 			if (!(ft_isdigit(argv[argnum][count]))
-				&& (argv[argnum][count] != '-')
-				&& !((argv[argnum][count] == ' ') && (argc == 2)))
+				&& !((argv[argnum][count] == ' ') && (argc == 2))
+				&& argv[argnum][count] != '-')
+				panic(ERRMSG_DEFAULT);
+			else if (count > 0 && (argv[argnum][count] == '-'
+				&& argv[argnum][count - 1] != ' '))
 				panic(ERRMSG_DEFAULT);
 			++count;
 		}
