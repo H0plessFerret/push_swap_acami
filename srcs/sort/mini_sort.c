@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 15:14:04 by acami             #+#    #+#             */
-/*   Updated: 2021/07/31 16:22:26 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/31 17:16:05 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,11 @@ static void	joinThrees(t_env *env, int64_t min)
 			pa(env);
 		ra(env);
 	}
-	a_rotations = calculateARotations(env, min) - 1;
-	doRotations(env, a_rotations, 0);
+	if (!isSorted(env->a_head))
+	{
+		a_rotations = findRotationsToElem(env->a_head, env->a_size, min);
+		doRotations(env, a_rotations, 0);
+	}
 }
 
 void	miniSort(t_env *env)

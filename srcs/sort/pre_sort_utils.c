@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 15:27:50 by acami             #+#    #+#             */
-/*   Updated: 2021/07/31 15:32:19 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/31 17:33:47 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,25 @@ void	pushToB(t_env *env, int64_t min, int64_t max, int64_t mid)
 		else
 			break ;
 	}
+}
+
+int64_t	findRotationsToElem(t_dCList *head, int64_t size, int64_t val)
+{
+	int64_t		count;
+	t_dCList	*curr_elem;
+
+	if (head->val == val)
+		return (0);
+	count = 1;
+	curr_elem = head->next;
+	while (curr_elem != head)
+	{
+		if (curr_elem->val == val)
+			break ;
+		curr_elem = curr_elem->next;
+		++count;
+	}
+	if (count < size - count)
+		return (count);
+	return (count - size);
 }

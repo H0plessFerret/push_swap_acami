@@ -6,3 +6,4 @@ objs/
 *.dSYM*
 *.tmp
 checker_linux
+checker

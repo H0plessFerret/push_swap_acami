@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 15:45:15 by acami             #+#    #+#             */
-/*   Updated: 2021/07/30 18:11:06 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/31 17:41:38 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include "utils.h"
 
 # define	NO_SCORE	-1
-
-#include <stdio.h>
 
 // DCList = Doubly-linked Circlular List
 typedef struct s_dCList	t_dCList;

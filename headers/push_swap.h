@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:41 by acami             #+#    #+#             */
-/*   Updated: 2021/07/31 15:06:58 by acami            ###   ########.fr       */
+/*   Updated: 2021/07/31 17:15:42 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,10 @@ void	printActions(const t_dCList *actions, int64_t fd);
 // Find the greatest possible sorted sub array
 // starting with min and ending with max elem on the A stack
 void	findGreatestSortedSubarray(t_env *env, int64_t min, int64_t max);
+
+// Find how many rotations away from top elem with val is
+// Returns the size of list if elem is not in the list
+int64_t	findRotationsToElem(t_dCList *head, int64_t size, int64_t val);
 
 //---------------------------- Basic operations ----------------------------//
 
