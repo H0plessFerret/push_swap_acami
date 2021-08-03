@@ -6,7 +6,7 @@
 #    By: acami <acami@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/03 12:46:16 by acami             #+#    #+#              #
-#    Updated: 2021/08/03 14:02:29 by acami            ###   ########.fr        #
+#    Updated: 2021/08/03 18:21:06 by acami            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,9 +44,11 @@ SRCS			+=	$(addprefix $(GNL_DIR), $(GNL_F))
 SRCS			+=	$(addprefix $(STACK_DIR), $(STACK_F))
 SRCS			+=	$(addprefix $(UTILS_DIR), $(UTILS_F))
 
+SRC_SUBDIRS		=	. get_next_line/ stack_operations/ utils/
 OBJ_DIR			=	./objs/
-OBJ_F			=	$(notdir $(SRCS:.c=.o))
-OBJS			=	$(addprefix $(OBJ_DIR), $(OBJ_F))
+OBJ_DIRS		=	$(addprefix $(OBJ_DIR)/, $(SRC_SUBDIRS))
+
+OBJS			=	$(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRCS))
 
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror -g
@@ -59,25 +61,23 @@ BLUE	=	\033[0;34m
 CYAN	=	\033[0;36m
 RESET 	= 	\033[0m
 
-vpath %.c $(sort $(dir $(SRCS)))
+all : 			$(NAME)
 
-$(NAME) :	 	$(OBJ_DIR) $(OBJ_F)
+$(NAME) :	 	$(OBJS)
 				@echo "$(NAME): $(GREEN)Creating $(NAME)$(RESET)"
 				$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
 				@echo "$(NAME): $(GREEN)>>>>>>>>>> DONE <<<<<<<<<<$(RESET)"
-
-all : 			$(NAME)
 
 bonus:			all
 
 include $(wildcard $(OBJ_DIR)*.d)
 
-$(OBJ_DIR) :
-				@mkdir -p $(OBJ_DIR)
-				@echo "$(NAME): $(GREEN)$(OBJ_DIR) was created$(RESET)"
+$(OBJ_DIRS) :
+				@mkdir -p $@
+				@echo "$(NAME): $(GREEN)$@ was created$(RESET)"
 
-$(OBJ_F) :		%.o: %.c
-				$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $(OBJ_DIR)$@ -MMD
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIRS)
+				$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@ -MMD
 
 clean :
 				@echo "$(NAME): $(BLUE)Deleting $(OBJ_DIR)$(RESET)"
