@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:19:26 by acami             #+#    #+#             */
-/*   Updated: 2021/07/31 18:22:20 by acami            ###   ########.fr       */
+/*   Updated: 2021/08/03 12:42:00 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,29 +50,29 @@ static int32_t	readSingleParamInput(t_dCList **a_head, const char *str)
 
 static void	checkArgsValidity(int32_t argc, const char **argv)
 {
-	int32_t	argnum;
+	int32_t	arg;
 	size_t	count;
 	size_t	str_len;
 
-	argnum = 1;
-	while (argnum < argc)
+	arg = 1;
+	while (arg < argc)
 	{
 		count = 0;
-		str_len = ft_strlen(argv[argnum]);
+		str_len = ft_strlen(argv[arg]);
 		if (str_len == 0)
 			panic(ERRMSG_DEFAULT);
 		while (count < str_len)
 		{
-			if (!(ft_isdigit(argv[argnum][count]))
-				&& !((argv[argnum][count] == ' ') && (argc == 2))
-				&& argv[argnum][count] != '-')
-				panic(ERRMSG_DEFAULT);
-			else if (count > 0 && (argv[argnum][count] == '-'
-				&& argv[argnum][count - 1] != ' '))
+			if ((!(ft_isdigit(argv[arg][count])) && argv[arg][count] != '-'
+					&& !((argv[arg][count] == ' ') && (argc == 2)))
+				|| ((argv[arg][count + 1] == '\0'
+					|| argv[arg][count + 1] == ' ') && argv[arg][count] == '-')
+				|| (count > 0 && (argv[arg][count] == '-'
+					&& argv[arg][count - 1] != ' ')))
 				panic(ERRMSG_DEFAULT);
 			++count;
 		}
-		++argnum;
+		++arg;
 	}
 }
 

@@ -1,9 +1,9 @@
-push_swap
+push_swap/push_swap
 objs/
 *.test
 *.debug
 .vs*
 *.dSYM*
 *.tmp
-checker_linux
-checker
+push_swap/checker_linux
+push_swap/checker

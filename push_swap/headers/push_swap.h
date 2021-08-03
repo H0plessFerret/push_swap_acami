@@ -6,26 +6,25 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:41 by acami             #+#    #+#             */
-/*   Updated: 2021/07/31 17:15:42 by acami            ###   ########.fr       */
+/*   Updated: 2021/08/03 13:37:59 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "double_circular_list.h"
-# include "utils.h"
 # include <stdlib.h>
 # include <inttypes.h>
 # include <unistd.h>
+# include "double_circular_list.h"
+# include "utils.h"
 
 # define	SORTED	1
-# define	EFFECTIVENESS_THRESHOLD	3
+# define	EFFECTIVENESS_THRESHOLD	6
 
 typedef struct s_env			t_env;
 typedef struct s_subarray		t_subarray;
 typedef enum e_actionId			t_actionId;
-typedef void					(*t_operation)(t_env *env);
 
 struct s_env
 {
@@ -46,6 +45,7 @@ struct s_subarray
 
 enum e_actionId
 {
+	act_error = -1,
 	act_nothing	= 0,
 	act_sa,
 	act_sb,
