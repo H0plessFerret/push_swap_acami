@@ -6,4 +6,4 @@ objs/
 *.dSYM*
 *.tmp
 push_swap/checker_linux
-push_swap/checker
+*/checker
