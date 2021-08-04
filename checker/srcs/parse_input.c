@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:19:26 by acami             #+#    #+#             */
-/*   Updated: 2021/08/04 12:58:20 by acami            ###   ########.fr       */
+/*   Updated: 2021/08/05 01:31:45 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	parseInput(t_env *env, int32_t argc, const char **argv)
 	else if (argc == 2)
 		entries = readSingleParamInput(&(env->a_head), argv[1]);
 	else
-		panic(ERRMSG_DEFAULT);
+		exit(EXIT_SUCCESS);
 	checkListVals(env->a_head);
 	env->a_size = entries;
 }
