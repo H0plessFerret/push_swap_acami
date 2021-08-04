@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:19:26 by acami             #+#    #+#             */
-/*   Updated: 2021/08/04 12:57:03 by acami            ###   ########.fr       */
+/*   Updated: 2021/08/04 13:06:31 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ const char **argv)
 	while (count < argc)
 	{
 		val = ft_atol(argv[count]);
-		if (val >= INT32_MAX)
+		if (val > INT32_MAX)
 			panic(ERRMSG_DEFAULT);
 		pushDCList(a_head, val, false);
 		++count;
@@ -43,7 +43,7 @@ static int32_t	readSingleParamInput(t_dCList **a_head, const char *str)
 	while (str_pos < str_len)
 	{
 		val = ft_atol(str + str_pos);
-		if (val >= INT32_MAX)
+		if (val > INT32_MAX)
 			panic(ERRMSG_DEFAULT);
 		pushDCList(a_head, val, false);
 		while ((str[str_pos] == '-' || ft_isdigit(str[str_pos]))
