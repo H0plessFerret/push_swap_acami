@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 16:14:41 by acami             #+#    #+#             */
-/*   Updated: 2021/08/03 13:37:59 by acami            ###   ########.fr       */
+/*   Updated: 2021/08/04 12:56:06 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <inttypes.h>
 # include <unistd.h>
+# include <limits.h>
 # include "double_circular_list.h"
 # include "utils.h"
 

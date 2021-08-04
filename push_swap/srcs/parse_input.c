@@ -6,7 +6,7 @@
 /*   By: acami <acami@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:19:26 by acami             #+#    #+#             */
-/*   Updated: 2021/08/03 12:42:00 by acami            ###   ########.fr       */
+/*   Updated: 2021/08/04 12:57:03 by acami            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@ static int32_t	readMultiParamInput(t_dCList **a_head, int32_t argc,
 const char **argv)
 {
 	int32_t	count;
+	int64_t	val;
 
 	count = 1;
 	while (count < argc)
 	{
-		pushDCList(a_head, ft_atol(argv[count]), false);
+		val = ft_atol(argv[count]);
+		if (val >= INT32_MAX)
+			panic(ERRMSG_DEFAULT);
+		pushDCList(a_head, val, false);
 		++count;
 	}
 	return (count - 1);
@@ -30,6 +34,7 @@ static int32_t	readSingleParamInput(t_dCList **a_head, const char *str)
 {
 	size_t	str_pos;
 	size_t	str_len;
+	int64_t	val;
 	int32_t	count;
 
 	str_pos = 0;
@@ -37,7 +42,10 @@ static int32_t	readSingleParamInput(t_dCList **a_head, const char *str)
 	str_len = ft_strlen(str);
 	while (str_pos < str_len)
 	{
-		pushDCList(a_head, ft_atol(str + str_pos), false);
+		val = ft_atol(str + str_pos);
+		if (val >= INT32_MAX)
+			panic(ERRMSG_DEFAULT);
+		pushDCList(a_head, val, false);
 		while ((str[str_pos] == '-' || ft_isdigit(str[str_pos]))
 			&& str_pos < str_len)
 			++str_pos;
